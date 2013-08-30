@@ -1,50 +1,125 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <project name="Maven">
 
-		
   <skin>
-    <groupId>org.apache.maven.skins</groupId>
-    <artifactId>maven-fluido-skin</artifactId>
-    <version>1.3.0</version>
+  	<groupId>lt.velykis.maven.skins</groupId>
+  	<artifactId>reflow-maven-skin</artifactId>
+  	<version>1.0.0</version>
   </skin>
-
   <custom>
-    <fluidoSkin>
-      <topBarEnabled>true</topBarEnabled>
-      <sideBarEnabled>false</sideBarEnabled>
-      <topBarIcon>
-        <name>Maven Fluido Skin</name>
-        <alt>Maven Fluido Skin</alt>
-        <src>/images/bell-curve-extra-small.png</src>
-        <href>/index.html</href>
-      </topBarIcon>
-      <topBarContainerStyle>width: 75%;</topBarContainerStyle>
-      <navBarStyle>navbar-inverse</navBarStyle>
-      <!-- Git Hub Fork -->
-      <gitHub>
-        <projectId>wrightm/AppStats</projectId>
-        <ribbonOrientation>right</ribbonOrientation>
-        <ribbonColor>red</ribbonColor>
-      </gitHub>
-      <!-- Facebook like -->
-      <facebookLike />
-      <!-- Google One -->
-      <googlePlusOne />
-      
-    </fluidoSkin>
+    <reflowSkin>
+      <!-- Make this to 'false' for local development, i.e. file:// URLs -->
+      <protocolRelativeURLs>false</protocolRelativeURLs>
+      <smoothScroll>true</smoothScroll>
+      <theme>default</theme>
+      <highlightJs>true</highlightJs>
+      <highlightJsTheme>github</highlightJsTheme>
+      <absoluteResourceURL>http://wrightm.github.com/AppStats/</absoluteResourceURL>
+      <brand>
+        <!-- Brand text in top-left part of the site -->
+        <name>
+          <![CDATA[
+<span class="color-highlight">AppStats</span> - Statistical App Usage Interrogator 
+]]>
+        </name>
+        <href>http://wrightm.github.com/AppStats</href>
+      </brand>
+      <slogan>Java library to Analyse Application Usage</slogan>
+      <titleTemplate>%2$s | %1$s</titleTemplate>
+      <!-- Use Table of Contents at the top of the page (max 6 elements) -->
+      <toc>top</toc>
+      <tocTopMax>6</tocTopMax>
+      <!-- Include the documentation and tools in the top navigation (in addition to links) -->
+      <topNav>Documentation|Tools|Contribute</topNav>
+      <!-- Split menus in the bottom navigation -->
+      <bottomNav maxSpan="9" >
+        <column>Main</column>
+        <column>Contribute</column>
+        <column>Documentation</column>
+        <column>reports</column>
+      </bottomNav>
+      <bottomDescription>
+        <![CDATA[
+<span class="color-highlight">AppStats</span> is a Java library to Analyse Application Usage
+]]>
+      </bottomDescription>
+      <pages>
+        <index project="reflow-parent">
+          <!-- Override the title -->
+          <titleTemplate>Reflow Maven Skin</titleTemplate>
+          <!-- no breadcrumbs on the main index page -->
+          <breadcrumbs>false</breadcrumbs>
+          <!-- no ToC on the main index page -->
+          <toc>false</toc>
+          <markPageHeader>false</markPageHeader>
+          <sections>
+            <carousel />
+            <columns>2</columns>
+            <body />
+            <sidebar />
+          </sections>
+        </index>
+        <contribute>
+          <breadcrumbs>false</breadcrumbs>
+        </contribute>
+        <!-- Disable source highlighting for Maven reports -->
+        <source-repository>
+          <highlightJs>false</highlightJs>
+        </source-repository>
+        <issue-tracking>
+          <highlightJs>false</highlightJs>
+          <toc>false</toc>
+        </issue-tracking>
+        <license>
+          <highlightJs>false</highlightJs>
+          <toc>false</toc>
+        </license>
+        <!-- Disable ToC for some Maven reports -->
+        <project-info>
+          <toc>false</toc>
+        </project-info>
+        <dependencies>
+          <tocTopMax>4</tocTopMax>
+        </dependencies>
+      </pages>
+    </reflowSkin>
   </custom>
-  
+
   <body>
-	 <breadcrumbs>
-            <item name="Developer Guide" href="developer-guide.html"/>
-            <item name="User Guide" href="user-guide.html"/>
-     </breadcrumbs>
-     
-    <menu name="Guides">
-      <item name="Developer" href="developer-guide.html"/>
-      <item name="User" href="user-guide.html"/>
-      <item name="FAQs" href="faq.html"/>
+    <!-- Add a rel to Google profile for all pages -->
+    <!-- 
+    <head>
+      <link rel="author" href="http://plus.google.com/109737404465892813363"/>
+    </head>
+  	-->
+  	
+    <links>
+      <item name="GitHub project" href="http://github.com/wrightm/AppStats/" />
+    </links>
+
+    <breadcrumbs>
+      <item name="AppStats" href="/" />
+    </breadcrumbs>
+  
+    <menu name="Main" inherit="top">
+      <item name="Home" href="./" />
+      <item name="GitHub project" href="http://github.com/wrightm/AppStats/" />
+      <item name="Release notes" href="changes-report.html" />
+      <item name="FAQs" href="faq.html" />
     </menu>
 
+    <menu name="Documentation" inherit="bottom">
+      <item name="User Guide" href="user-guide.html" />
+      <item name="Developer Guide" href="developer-guide.html" />
+    </menu>
+
+    <menu name="Contribute" inherit="bottom">
+      <item name="Contribute" href="contribute.html" />
+      <item name="Issues" href="http://github.com/wrightm/AppStats/issues/" />
+      <item name="Fork on GitHub" href="http://github.com/wrightm/AppStats/" />
+    </menu>
+
+    <menu name="Maven documentation" ref="reports" inherit="bottom"/>
+    
   </body>
 </project>
