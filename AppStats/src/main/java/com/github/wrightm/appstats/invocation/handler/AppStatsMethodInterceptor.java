@@ -2,10 +2,10 @@ package com.github.wrightm.appstats.invocation.handler;
 
 import java.lang.reflect.Method;
 
-import com.github.wrightm.appstats.interceptor.AOPInterceptor;
-
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
+
+import com.github.wrightm.appstats.interceptor.AOPInterceptor;
 
 public class AppStatsMethodInterceptor implements MethodInterceptor{
 

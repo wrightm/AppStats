@@ -1,13 +1,11 @@
 package com.github.wrightm.appstats.factory;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import java.lang.reflect.Method;
 
 import org.junit.Test;
 
-import com.github.wrightm.appstats.factory.AppStatsProxyFactory;
-import com.github.wrightm.appstats.factory.AppStatsProxyFactoryImpl;
 import com.github.wrightm.appstats.interceptor.AOPInterceptor;
 
 public class AppStatsProxyFactoryImplTest {
