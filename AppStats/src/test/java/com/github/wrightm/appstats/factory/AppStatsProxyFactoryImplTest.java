@@ -6,29 +6,13 @@ import java.lang.reflect.Method;
 
 import org.junit.Test;
 
-import com.github.wrightm.appstats.interceptor.AOPInterceptor;
+import com.github.wrightm.appstats.interceptor.MethodTypeInterceptor;
 
 public class AppStatsProxyFactoryImplTest {
 
-	public class DummyInterceptor implements AOPInterceptor {
+	public class DummyInterceptor implements MethodTypeInterceptor {
 
-		public void before(Object target, Method method, Object[] args) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		public void after(Object target, Method method, Object[] args) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		public void afterThrowing(Object target, Method method, Object[] args,
-				Throwable exception) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		public void afterFinally(Object target, Method method, Object[] args) {
+		public void intercept(Object target, Method method, Object[] args) {
 			// TODO Auto-generated method stub
 			
 		}
@@ -38,7 +22,7 @@ public class AppStatsProxyFactoryImplTest {
 	@Test
 	public void test() {
 
-		AOPInterceptor interceptor = new DummyInterceptor();
+		MethodTypeInterceptor interceptor = new DummyInterceptor();
 		DummyClass dummyClass = new DummyClass();	
 		
 		AppStatsProxyFactory appStatProxy = new AppStatsProxyFactoryImpl();

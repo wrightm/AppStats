@@ -1,4 +1,4 @@
-package com.github.wright.appstats.reflective.annotations;
+package com.github.wrightm.appstats.reflective.annotations;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;

@@ -2,16 +2,16 @@ package com.github.wrightm.appstats.invocation.handler;
 
 import java.lang.reflect.Method;
 
+import com.github.wrightm.appstats.interceptor.MethodTypeInterceptor;
+
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
 
-import com.github.wrightm.appstats.interceptor.AOPInterceptor;
-
 public class AppStatsMethodInterceptor implements MethodInterceptor{
 
-	private AOPInterceptor interceptor;
+	private MethodTypeInterceptor interceptor;
 	
-	public AppStatsMethodInterceptor(AOPInterceptor interceptor)
+	public AppStatsMethodInterceptor(MethodTypeInterceptor interceptor)
 	{
 		this.interceptor = interceptor;
 	}
@@ -20,19 +20,13 @@ public class AppStatsMethodInterceptor implements MethodInterceptor{
 			MethodProxy methodProxy) throws Throwable {
 		try
 		{
-			interceptor.before(target, method, args);
+			interceptor.intercept(target, method, args);
 			Object retVal = methodProxy.invokeSuper(target, args);
-			interceptor.after(target, method, args);
 			return retVal;
 		}
 		catch(Throwable err)
 		{
-			interceptor.afterThrowing(target, method, args, err);
 			throw err;
-		}
-		finally
-		{
-			interceptor.afterFinally(target, method, args);
 		}
 	}
 }

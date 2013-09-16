@@ -19,6 +19,7 @@ import com.github.wright.appstats.dummyclasses.Person;
 import com.github.wright.appstats.dummyclasses.PrincipleTeacher;
 import com.github.wright.appstats.dummyclasses.Teacher;
 import com.github.wrightm.appstats.annotations.InvokeIntercept;
+import com.github.wrightm.appstats.reflective.annotations.ClassAnnotationInterrogator;
 
 public class ClassAnnotationsTest {
 

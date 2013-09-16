@@ -109,8 +109,11 @@
     </menu>
 
     <menu name="Documentation" inherit="bottom">
-      <item name="User Guide" href="user-guide.html" />
-      <item name="Developer Guide" href="developer-guide.html" />
+      <item name="User Guide" href="userguide/user-guide.html" >
+      </item>
+      <item name="Developer Guide" href="developerguide/developer-guide.html" collapse="true" >
+      	<item name="ClassAnnotations" href="developerguide/class-annotations.apt" />
+      </item>
     </menu>
 
     <menu name="Contribute" inherit="bottom">
